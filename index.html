@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Индивидуальное задание 4</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef3f8;
+            color: #222222;
+            margin: 0;
+            padding: 30px;
+            transition: background-color 0.4s;
+        }
+
+        .resume {
+            width: 700px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 25px;
+            background-color: white;
+            border: 2px solid #4c6a85;
+            border-radius: 18px;
+            box-shadow: 0 0 18px rgba(0, 0, 0, 0.25);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 34px;
+            color: #294766;
+            text-shadow: 2px 2px 4px #cccccc;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 23px;
+            color: #355c7d;
+            border-bottom: 2px solid #d7e3ef;
+            padding-bottom: 5px;
+            margin-top: 22px;
+        }
+
+        p, li, label {
+            font-size: 17px;
+            line-height: 1.5;
+        }
+
+        .avatar {
+            display: block;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #4c6a85;
+            box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+        }
+
+        .block {
+            margin-top: 16px;
+            padding: 15px;
+            border: 1px solid #b9c8d8;
+            border-radius: 12px;
+            background-color: #f8fbff;
+            transition: 0.3s;
+        }
+
+        .block:hover {
+            background-color: #eaf4ff;
+            border-color: #4c8ac9;
+        }
+
+        .name {
+            color: #1f5fa8;
+            font-weight: bold;
+        }
+
+        ul {
+            margin-top: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px;
+            margin-top: 8px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            border: 2px solid #aab7c4;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4386c6;
+        }
+
+        button {
+            padding: 11px 16px;
+            margin-right: 8px;
+            margin-top: 5px;
+            font-size: 16px;
+            border: 2px solid #3b617f;
+            border-radius: 8px;
+            background-color: #dcecff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #4386c6;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume">
+        <h1>Моё резюме</h1>
+
+        <img class="avatar" src="https://i.pravatar.cc/300" alt="Случайная аватарка">
+
+        <div class="block">
+            <h2>Личная информация</h2>
+            <p><b>Имя:</b> Михаил</p>
+            <p><b>Фамилия:</b> <span class="name" id="surname">Райков</span></p>
+            <p><b>Направление:</b> Автоматизация технологических процессов и производств</p>
+            <p><b>Учебное заведение:</b> МГТУ «СТАНКИН»</p>
+        </div>
+
+        <div class="block">
+            <h2>Обо мне</h2>
+            <p>
+                Я студент 3 курса. Интересуюсь промышленной автоматизацией,
+                оборудованием, электроникой и станками с ЧПУ.
+            </p>
+        </div>
+
+        <div class="block">
+            <h2>Навыки</h2>
+            <ul>
+                <li>C++</li>
+                <li>T-FLEX CAD</li>
+                <li>3D-печать</li>
+                <li>Работа с технической документацией</li>
+                <li>Пайка и работа с электроникой</li>
+            </ul>
+        </div>
+
+        <div class="block">
+            <h2>Изменение фамилии</h2>
+            <label for="newSurname">Введите новую фамилию:</label>
+            <input type="text" id="newSurname" placeholder="Например: Иванов">
+
+            <button onclick="changeSurname()">Изменить фамилию</button>
+            <button onclick="changeBackground()">Сменить цвет фона</button>
+        </div>
+    </div>
+
+    <script>
+        function changeSurname() {
+            let surname = document.getElementById("newSurname").value;
+
+            if (surname !== "") {
+                document.getElementById("surname").textContent = surname;
+            } else {
+                alert("Введите фамилию.");
+            }
+        }
+
+        function changeBackground() {
+            let colors = ["#eef3f8", "#fff0f0", "#f0fff4", "#fff7e8", "#f3efff"];
+            let randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+        }
+    </script>
+</body>
+</html>
